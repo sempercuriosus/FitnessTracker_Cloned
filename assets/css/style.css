@@ -1,0 +1,19 @@
+
+
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+  margin: -55px auto 0; 
+  width: 400px;
+  -moz-box-shadow: 10px 10px 5px #ccc;
+  -webkit-box-shadow: 10px 10px 5px #ccc;
+  box-shadow: 10px 10px 5px #ccc;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+  border-radius:25px;
+}

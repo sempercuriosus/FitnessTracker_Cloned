@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Gyms Near You</title>
+    <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./map.css">
+    <script src="https://kit.fontawesome.com/7c9180ab11.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="initMap()">
+    
+    <!--header top of page-->
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <p class="title">
+                Fitness Tracker <i class="fa-solid fa-dumbbell fa-beat"></i>
+            </p>
+            <p class="subtitle">
+                Enter your zipcode in the search bar to find gyms near you!
+            </p>
+            
+        </div>
+    </section>
+
+    <!--Button redirect for home screen , and zipcode search with button-->
+    <div class="columns">
+        <div class="column">
+            <button class="button is-full " alt="home" onclick="history.back();" 
+            id="back" class="float-left submit-button" > 
+                <i class="fa-solid fa-house"></i>  &nbsp; Home </button>
+
+            <div class="column field has-addons" >
+                <div class="control is-full  ">
+                    <input id="zipcode" class="input" type="text" placeholder= "e.g. 28214">
+                  </div>
+                  <div class="control">
+                    <a class="button is-info " id="search-button">
+                        <i class="fa-solid fa-dumbbell"></i>  &nbsp; Find Gyms 
+                    </a>
+                  </div>
+            
+            </div>
+        </div>
+        
+        
+    </div>
+
+     <!--map image placeholder-->
+    <div id="map" style="height: 400px;"></div>
+    
+    <!--gym list renders below map-->
+    <section class="hero is-primary" id="gym-section">
+        <div class="columns">
+          <div class="hero-body">
+            <p class="title">
+              Gyms Near You <i class="fa fa-map-location-dot"></i>
+            </p>
+            <ul style="list-style-type: disc" id="gyms-list">
+              <li id="no-results">No results found.</li>
+            </ul>
+          </div>
+        </div>
+      </section>        
+    
+    <!--modal alerts trigger--> 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+    
+    <!--google api url with api-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD33vNuzd3SAtWcxKkdKtUk9WMMe8sLAD4&libraries=places"></script>
+    <script src="./map.js"></script>
+
+</body>
+</html>

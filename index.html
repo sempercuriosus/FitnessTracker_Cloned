@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <title>Fitness Tracker</title>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet"
+            href="./assets/css/style.css">
+        <script src="https://kit.fontawesome.com/7c9180ab11.js"
+            crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- HERO -->
+        <section class="hero is-primary block">
+            <div class="hero-body">
+                <p class="title">
+                    Fitness Tracker <i class="fa-solid fa-dumbbell fa-beat"></i>
+                </p>
+                <p class="subtitle">
+                    Make and Complete workouts to challenge yourself
+                </p>
+            </div>
+        </section> <!-- END HERO -->
+
+        <!-- START COLUMNS -->
+        <section class="columns is-desktop">
+
+            <!-- MENU COLUMN -->
+            <section id="menu"
+                class="column is-one-quarter-desktop">
+
+                <!-- CREATE BUTTON COLUMN -->
+                <div class="column is-full">
+                    <button id="create-button"
+                        class="create button is-fullwidth">Create Workout</button>
+                </div> <!-- END CREATE BUTTON COLUMN -->
+
+                <!-- UPCOMING WORKOUT COLUMN GROUP -->
+                <div id="upcoming-list-container"
+                    class="column is-full dropdown">
+                    <div class="dropdown-trigger">
+                        <button id="upcoming-workouts-button"
+                            class="button is-fullwidth"
+                            aria-haspopup="true"
+                            aria-controls="dropdown-menu2">
+                            <span>Upcoming Workouts</span>
+                            <span class="icon is-small">
+                                <i class="fa fa-angle-down"
+                                    aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu"
+                        id="dropdown-menu2"
+                        role="menu">
+                        <div id="upcoming-list"
+                            class="dropdown-content">
+                        </div>
+                    </div>
+                </div> <!-- END UPCOMING WORKOUT COLUMN GROUP -->
+
+                <!-- PAST WORKOUT COLUMN GROUP -->
+                <div id="past-list-container"
+                    class="column is-full dropdown">
+                    <div class="dropdown-trigger">
+                        <button id="past-workouts-button"
+                            class="button is-fullwidth"
+                            aria-haspopup="true"
+                            aria-controls="dropdown-menu2">
+                            <span>Past Workouts</span>
+                            <span class="icon is-small">
+                                <i class="fa fa-angle-down"
+                                    aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu"
+                        id="dropdown-menu2"
+                        role="menu">
+                        <div id="past-list"
+                            class="dropdown-content">
+                        </div>
+                    </div>
+                </div> <!-- END PAST WORKOUT COLUMN GROUP -->
+
+                <!-- MAP BUTTON COLUMN -->
+                <div class="column is-full">
+                    <button onclick="window.location.href='./assets/map.html';"
+                        id="map"
+                        class="button is-fullwidth">
+                        <span>Maps | Gym List</span>
+                        <span class="icon is-small">
+                            <i class="fa fa-map-location-dot"></i>
+                        </span>
+                    </button>
+                </div> <!-- MAP BUTTON COLUMN -->
+
+            </section> <!-- END MENU COLUMN -->
+
+            <!-- WORKOUT DISPLAY COLUMN -->
+            <div class="column">
+                <section id="displayWorkout"
+                    class="workout-display hide">
+
+                    <!-- CURRENT/SELECTED WORKOUT COLUMN  -->
+                    <div class="column is-four-fifths-desktop box">
+
+                        <!-- WORKOUT NAME/DATE COLUMNS -->
+                        <div id="current workout"
+                            class="columns">
+
+                            <!-- WORKOUT NAME COLUMN GROUP -->
+                            <div class="column is-three-fifths">
+                                <label class="label">Workout Name</label>
+                                <input type="text"
+                                    id="workout-name"
+                                    class="input is-medium is-primary"
+                                    type="text"
+                                    placeholder="EG Tuesday | Leg Day | Cardio">
+                            </div> <!-- END WORKOUT NAME COLUMN GROUP -->
+
+                            <!-- WORKOUT DATE COLUMN GROUP -->
+                            <div class="column is-one-fifths">
+                                <label class="label">Workout Date</label>
+                                <input type="date"
+                                    id="workout-date"
+                                    class="input is-medium is-primary">
+                            </div> <!-- END WORKOUT DATE COLUMN GROUP -->
+                        </div> <!-- END WORKOUT NAME/DATE COLUMNS -->
+
+                        <!-- ADD MOVEMENT COLUMN GROUP -->
+                        <label class="label">Movement</label>
+                        <div class="columns">
+                            <div class="column is-three-quarters">
+                                <input type="text"
+                                    id="movement-input"
+                                    class="input"
+                                    type="text"
+                                    placeholder="EG Back Squats | Run">
+                            </div>
+
+                            <div class="column is-2">
+                                <button id="add-movement"
+                                    class="button is-fullwidth is-success">
+                                    <span class="icon is-small">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div> <!-- END ADD MOVEMENT COLUMN GROUP -->
+
+                        <!-- BUTTON COLUMNS -->
+                        <div class="columns">
+
+                            <!-- SAVE BUTTON COLUMN -->
+                            <!-- <div class="column is-one-quarter">
+                                <button id="save-button"
+                                    class="button is-fullwidth is-success is-outlined">
+                                    <span>Save Workout</span>
+                                    <span class="icon is-small">
+                                        <i class="fa fa-save"></i>
+                                    </span>
+                                </button>
+                            </div>  -->
+                            <!-- SAVE BUTTON COLUMN -->
+
+                            <!-- CLOSE BUTTON COLUMN -->
+                            <div class="column is-one-third is-mobile-three-quarters">
+                                <button id="close-button"
+                                    class="button is-fullwidth is-warning">
+                                    <span>Close Workout</span>
+                                    <span class="icon is-small">
+                                        <i class="fa fa-times"></i>
+                                    </span>
+                                </button>
+                            </div> <!-- CLOSE BUTTON COLUMN -->
+
+                            <!-- DELETE BUTTON COLUMN -->
+                            <div class="column is-one-third is-mobile-is-full">
+                                <button id="delete-button"
+                                    class="button is-fullwidth is-danger is-outlined">
+                                    <span>Delete Workout</span>
+                                    <span class="icon is-small">
+                                        <i class="fa fa-trash"></i>
+                                    </span>
+                                </button>
+                            </div> <!-- DELETE BUTTON COLUMN -->
+
+                        </div> <!-- END BUTTON COLUMNS -->
+                        <!-- MOVEMENT LIST COLUMN GROUP -->
+                        <div class="column is-four-fifths">
+                            <label class="label">Movement List</label>
+                            <span id="helper1"
+                                class="help block">Listed Movements Appear Below</span>
+                            <ul id="selected-movements"
+                                class="menu-list content">
+                                <li id="movement"></li>
+                            </ul>
+                        </div> <!-- END MOVEMENT LIST COLUMN GROUP -->
+                    </div> <!-- END CURRENT/SELECTED WORKOUT COLUMN  -->
+
+                    <!-- EXERCISE API SEARCH COLUMN -->
+                    <div class="column is-full-tablet is-four-fifths-desktop box">
+
+                        <!-- EXERCISE SEARCH FIELDS COLUMNS -->
+                        <div class="columns">
+
+                            <!-- EXERCISE SEARCH COLUMN -->
+                            <div class="column">
+
+                                <!-- EXERCISE API CONTAINER  -->
+                                <div id="exc-api-containter">
+
+                                    <!-- EQUIPMENT COLUMN GROUP -->
+                                    <div class="field">
+                                        <label class="column is-full label">Equipment</label>
+                                        <div class="column control has-icons-left has-icons-right">
+                                            <input id="exercise-equipment"
+                                                class="input"
+                                                type="text"
+                                                placeholder="EG Barbell | Body Weight | Dumbbells">
+                                        </div>
+                                    </div> <!-- END EQUIPMENT COLUMN GROUP -->
+
+                                    <!-- NAME COLUMN GROUP -->
+                                    <div class="field">
+                                        <label class="column is-full label">Name</label>
+                                        <div class="column control has-icons-left has-icons-right">
+                                            <input id="exercise-name"
+                                                class="input"
+                                                type="text"
+                                                placeholder="EG Arms | Bench | Legs">
+                                        </div>
+                                    </div> <!-- NAME COLUMN GROUP -->
+
+                                    <!-- TYPE COLUMN GROUP -->
+                                    <div class="field">
+                                        <label class="column is-full label">Type</label>
+                                        <div class="column control has-icons-left has-icons-right">
+                                            <input id="exercise-type"
+                                                class="input"
+                                                type="text"
+                                                placeholder="EG Cardio | Strength | Olympic Weightlifting">
+                                        </div>
+                                    </div> <!-- END TYPE COLUMN GROUP -->
+
+                                    <!-- MUSCLE COLUMN GROUP -->
+                                    <div>
+                                        <label class="column is-full label">Muscle</label>
+                                        <div class="column control has-icons-left has-icons-right">
+                                            <input id="exercise-muscle"
+                                                class="input"
+                                                type="text"
+                                                placeholder="EG Quadriceps | Chest | Lats">
+                                        </div>
+                                    </div> <!-- END MUSCLE COLUMN GROUP -->
+
+                                </div> <!-- END EXERCISE API CONTAINER  -->
+                            </div> <!-- END EXERCISE SEARCH COLUMN -->
+                        </div> <!-- END EXERCISE SEARCH FIELDS COLUMNS -->
+
+                        <!-- SUGGESTIONS BUTTONS COLUMN  -->
+                        <div class="columns block">
+                            <div class=" column is-one-half-tablet is-one-quarter-desktop">
+                                <button id="exercise-search"
+                                    class="button is-fullwidth">Get Suggestions</button>
+                            </div>
+                            <div class=" column is-one-half-tablet is-one-quarter-desktop">
+                                <button id="clear-search"
+                                    class="button is-fullwidth is-warning">Clear Suggestions</button>
+                            </div>
+                        </div> <!--END SUGGESTIONS BUTTONS COLUMN -->
+
+                        <!-- MOVEMENT SUGGESTIONS COLUMN -->
+                        <div class="column">
+                            <label class="label block">Movement Suggestions</label>
+                            <p class="help block">Listed Movements Appear Below</p>
+                            <div id="exercise-suggestions"
+                                class="block"></div>
+                        </div> <!-- END MOVEMENT SUGGESTIONS COLUMN -->
+                    </div> <!-- END EXERCISE API SEARCH COLUMN -->
+                </section>
+            </div> <!-- END WORKOUT DISPLAY COLUMN -->
+        </section> <!-- END COLUMNS -->
+
+
+        <!-- FITNESS TRACKER LOGO -->
+        <div class="logo">
+            <img src="./assets/FTlogo.JPG" alt="logo">
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
+        <script src="https://unpkg.com/@googlemaps/js-api-loader@1.x/dist/index.min.js"></script>
+        <script src="./assets/script.js"></script>
+        <script src="./assets/api.js"></script>
+    </body>
+
+</html>
